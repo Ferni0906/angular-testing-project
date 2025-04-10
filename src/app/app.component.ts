@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Task } from './task';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +10,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-testing-project';
 
-  addTask(task: string) {
+  task: Task[] = [];
 
+
+  addTask(task: string): void {
+    const newTask: Task = { 
+      name: task
+     };
+    this.task.push(newTask);
   }
 
   deleteTask(task: string) {
+    this.task = this.task.filter((t) => t.name !== task);
+  
   }
 
   getTasks(): string[] {

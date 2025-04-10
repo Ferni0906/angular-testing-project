@@ -1,3 +1,16 @@
+
+<h1>Angular Testing Project</h1>
+
 <div>
-  <h1>Welcome to {{ title }}!</h1>
+  @for (t of task; track t) {
+    <p>{{t.name}}</p>
+    <div class="buttons">
+      <button>editar</button>
+      <button (click)="deleteTask(t.name)">eliminar</button>
+    </div>
+  }
+</div>
+<div>
+  <input type="text" name="task" #taska placeholder="agrega nueva tarea" />
+  <button (click)="addTask(taska.value)">Agregar</button>
 </div>
